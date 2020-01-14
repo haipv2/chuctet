@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'common/const.dart';
+import 'locator.dart';
 import 'pages/home_page.dart';
 import 'pages/list_wishes.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  setup();
+  return runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -32,7 +36,8 @@ class Router {
       case PAGE_HOME:
         return MaterialPageRoute(builder: (_) => HomePage());
       case PAGE_LIST_WISHES:
-        return MaterialPageRoute(builder: (_) => ListWish(routeSettings.arguments));
+        return MaterialPageRoute(
+            builder: (_) => ListWish(routeSettings.arguments));
       default:
         return MaterialPageRoute(
           builder: (_) => Center(
