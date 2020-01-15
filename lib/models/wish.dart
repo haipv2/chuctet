@@ -11,7 +11,11 @@ class Wish extends BaseModel{
   String type;
   String date;
 
-  Wish.fromMap(Map<String, dynamic> maps) {
+
+  Wish({this.content, this.imgUrl, this.msgType, this.sendTo, this.active,
+      this.type, this.date});
+
+  Wish.fromMap(Map maps) {
       content = maps['content'];
       imgUrl = maps['img_url'];
       active = maps['active'];

@@ -12,7 +12,7 @@ class BasePage<T extends BaseModel> extends StatefulWidget {
   BasePage({this.builder, this.onModelReady});
 
   @override
-  _BasePageState createState() => _BasePageState();
+  _BasePageState<T> createState() => _BasePageState<T>();
 }
 
 class _BasePageState<T extends BaseModel> extends State<BasePage<T>> {

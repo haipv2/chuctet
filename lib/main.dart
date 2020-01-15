@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'common/const.dart';
 import 'locator.dart';
 import 'pages/home_page.dart';
-import 'pages/list_wishes.dart';
+import 'pages/list_wishes_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   setup();

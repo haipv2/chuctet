@@ -28,9 +28,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bg.jpg'), fit: BoxFit.fill)),
+        decoration: boxDecoration,
         child: ListView.builder(
             itemCount: 3,
             itemBuilder: (context, i) {
