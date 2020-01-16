@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'base_page.dart';
 import 'widget/loading_widget.dart';
+import 'widget/msg_item.dart';
 
 class ListWish extends StatefulWidget {
   final Object arguments;
@@ -24,22 +25,17 @@ class _ListWishState extends State<ListWish> {
     return BasePage<ListWishModel>(
       onModelReady: (model) => model.getListWish(widget.arguments),
       builder: (context, model, child) {
-        return StreamBuilder<Object>(
-          stream: model.getListWishAsStream(),
-          builder: (context, snapshot) {
-            return Scaffold(
-                body: !snapshot.hasData
-                      ? LoadingPage()
-                      : Container(
-                          decoration: boxDecoration,
-                          child: ListView.builder(
-                              itemCount: model.listWish.length,
-                              itemBuilder: (context, i) {
-                                return Text(model.listWish[i].content);
-                              }),
-                        )
-            );
-          }
+        return Scaffold(
+            body: model.listWish.isEmpty
+                ? LoadingPage()
+                : Container(
+              decoration: boxDecoration,
+              child: ListView.builder(
+                  itemCount: model.listWish.length,
+                  itemBuilder: (context, i) {
+                    return MsgItem(model.listWish[i]);
+                  }),
+            )
         );
       },
     );

@@ -6,6 +6,8 @@ import 'pages/home_page.dart';
 import 'pages/list_wishes_page.dart';
 import 'package:provider/provider.dart';
 
+import 'pages/wish_detail_page.dart';
+
 void main() {
   setup();
   return runApp(MyApp());
@@ -39,6 +41,9 @@ class Router {
       case PAGE_LIST_WISHES:
         return MaterialPageRoute(
             builder: (_) => ListWish(routeSettings.arguments));
+      case WISH_DETAIL:
+        return MaterialPageRoute(
+            builder: (_) => WishDetailPage(routeSettings.arguments));
       default:
         return MaterialPageRoute(
           builder: (_) => Center(
