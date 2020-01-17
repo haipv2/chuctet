@@ -1,6 +1,11 @@
 import 'package:chuctet/common/const.dart';
 import 'package:chuctet/models/wish.dart';
+import 'package:contacts_plugin/contacts_plugin.dart';
+import 'package:contacts_plugin/contacts_plugin.dart';
+//import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
+
+import 'widget/fonts_widgets.dart';
 
 class WishDetailPage extends StatefulWidget {
   final Wish wish;
@@ -25,23 +30,7 @@ class _WishDetailPageState extends State<WishDetailPage> {
               Navigator.pop(context);
             },
             child: Icon(Icons.arrow_back_ios)),
-        actions: <Widget>[
-          DropdownButton<String>(
-            value: 'One',
-            icon: Icon(Icons.text_fields),
-            onChanged: (String newFont) {
-              print(newFont);
-              font = newFont;
-            },
-            items: <String>['One', 'Two', 'Free', 'Four']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-        ],
+        actions: <Widget>[FontDropDownList()],
       ),
       body: Container(
         decoration: boxDecoration,
@@ -53,7 +42,7 @@ class _WishDetailPageState extends State<WishDetailPage> {
               child: Center(
                   child: Text(
                 widget.wish.content,
-                style: textStyleContent,
+                style: textStyle1,
               )),
             ),
             Expanded(
@@ -68,7 +57,22 @@ class _WishDetailPageState extends State<WishDetailPage> {
                   Expanded(
                     child: InkWell(
                       onTap: () {},
-                      child: Icon(Icons.sms),
+                      child: Icon(Icons.favorite),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+//                        Share.share(widget.wish.content);
+                          openContact();
+                      },
+                      child: Theme(
+                          data: Theme.of(context).copyWith(
+                            canvasColor: Colors.blue
+                          ),
+                          child: Icon(
+                        Icons.sms,
+                      )),
                     ),
                   )
                 ],
@@ -78,5 +82,12 @@ class _WishDetailPageState extends State<WishDetailPage> {
         ),
       ),
     );
+  }
+
+  void openContact() async {
+    // Get all contacts on device
+//    Iterable<Contact> contacts = await ContactsService.getContacts();
+    List<Contact> contacts = await ContactsPlugin().getContacts();
+    print(contacts);
   }
 }

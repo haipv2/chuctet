@@ -31,6 +31,11 @@ dependencies:
   shared_preferences: ^0.5.6
   audioplayers: ^0.13.7
   firebase_storage: ^3.1.1
+#  google_fonts: ^0.3.2
+#  share: ^0.6.3+5
+  flutter_sms: ^1.1.0
+  contacts_service: ^0.3.10
+  contacts_plugin: ^0.0.3
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +54,35 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/bg.jpg
+    - google_fonts/
+
+  fonts:
+    - family: kieu1
+      fonts:
+       - asset: fonts/DancingScript-Bold.ttf
+         weight: 500
+       - asset: fonts/DancingScript-Medium.ttf
+         weight: 600
+       - asset: fonts/DancingScript-Regular.ttf
+         style: normal
+       - asset: fonts/DancingScript-SemiBold.ttf
+         weight: 700
+    - family: kieu2
+      fonts:
+        - asset: fonts/Charmonman-Bold.ttf
+          weight: 500
+        - asset: fonts/Charmonman-Regular.ttf
+          style: normal
+    - family: kieu3
+      fonts:
+        - asset: fonts/Pacifico-Regular.ttf
+          style: normal
+    - family: kieu4
+      fonts:
+        - asset: fonts/Srisakdi-Bold.ttf
+          weight: 500
+        - asset: fonts/Srisakdi-Regular.ttf
+          style: normal
 
   # To add assets to your application, add an assets section, like this:
   # assets:

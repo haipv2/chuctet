@@ -18,7 +18,9 @@ class MsgItem extends StatelessWidget {
           Navigator.pushNamed(context, WISH_DETAIL, arguments: wish);
         },
         child: ListTile(
-          title: Text(wish.content),
+          title: Text(
+            wish.content,
+          ),
           trailing: SendIcon(),
         ),
       ),
